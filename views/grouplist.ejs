@@ -2,5 +2,14 @@
 <ul>
     <li><%= user.name %> <%= user.email %></li>
     <li><%= user.id %> <%= user.groupName %></li>
-
 </ul>
+
+<table>
+    <% for(var i=0; i < groups.length; i++) { %>
+        <tr>
+            <% if(groups[i] != groups[i+1]) { %>
+                <td><%= groups[i] %></td>
+            <% } %>
+        </tr>
+    <% } %>
+</table>
