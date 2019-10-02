@@ -22,6 +22,25 @@
     
     </div>
     <button type="submit" class="btn btn-primary btn-block">
-      Register
+      Create new group
+    </button>
+  </form>
+
+  <form action="/grouplist" method="POST">
+    <div class="form-group">
+      <label for="name">Group Name</label>
+      <input
+        type="logName"
+        id="logName"
+        name="logName"
+        class="form-control"
+        placeholder="Enter Name"
+        value="<%= typeof logName != 'undefined' ? logName : '' %>"
+      />
+    </div>
+    
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">
+      Add group
     </button>
   </form>

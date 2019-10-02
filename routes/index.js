@@ -49,8 +49,29 @@ router.post('/dashboard',function (req, res){
 
 
 
-router.get('/grouplist', ensureAuthenticated,function (req, res){
-  res.render('grouplist')
+router.post('/grouplist', ensureAuthenticated,function (req, res){
+
+  const usr = req.user;
+  const id = usr.id;
+
+  console.log(group);
+
+  User.findOne({_id: id}, function(err, foundObject){
+    if(foundObject){
+      if(req.body.logName)
+        foundObject.groupName = req.body.logName    
+
+      foundObject.save();  
+      }
+    });
+
+  User.find({groupName: req.body.logName}, function(err, users) {
+    if(err){
+      res.send('something went really wrong!!');
+      next();
+    }
+    res.render('look', {users: users});
+  });
 });
 
 
