@@ -1,0 +1,27 @@
+<h1 class="mt-4">Dashboard</h1>
+<ul><% users.forEach(function(user){ %>
+    <li><%= user.name %> <%= user.email %></li>
+    <li><%= user.id %> <%= user.groupName %></li>
+<% }) %>
+</ul>
+
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+<form action="/dashboard" method="POST">
+    <div class="form-group">
+      <label for="name">Group Name</label>
+      <input
+        type="groupName"
+        id="groupName"
+        name="groupName"
+        class="form-control"
+        placeholder="Enter Name"
+        value="<%= typeof groupName != 'undefined' ? groupName : '' %>"
+      />
+    </div>
+    
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">
+      Register
+    </button>
+  </form>
